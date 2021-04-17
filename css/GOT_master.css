@@ -1,0 +1,306 @@
+@charset "UTF-8";
+
+/* ----- custom font ----- */
+@font-face {
+  font-family: "GOT_font";
+  src: url("Game_of_Thrones.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* ----- end custom font ----- */
+
+/* ----- default styles ----- */
+body {
+  background-image: url(../images/grungeBG.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #000000;
+  font-size: 16px;
+}
+
+h1 {
+  font-family: "GOT_font";
+  color: white;
+  margin-top: 30px;
+  font-size: 1.25em;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  top: 30px;
+}
+
+#imageContainer {
+  width: 600px;
+  height: 360px;
+  background-color: grey;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#houseImages {
+  position: relative;
+  width: 6000px;
+  transition: all 0.8s;
+}
+#houseImages img {
+  float: left;
+}
+
+#bottomNav {
+  margin-top: 30px;
+}
+
+#navList li {
+  display: inline;
+  list-style-type: none;
+  padding: 0px 10px;
+  cursor: pointer;
+}
+
+/* ----- end default styles ----- */
+
+/* ----- image sprite ----- */
+.sigilContainer {
+  width: 51px;
+  height: 54px;
+  display: inline-block;
+  overflow: hidden;
+  background-image: url(../images/GOT_sprites.png);
+  background-repeat: no-repeat;
+  transition: transform 0.3s;
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+}
+
+.stark {
+  background-position: 0px -54px;
+}
+.stark:hover {
+  background-position: 0px 0px;
+}
+
+.baratheon {
+  background-position: -50.5px -54px;
+}
+.baratheon:hover {
+  background-position: -51px 0px;
+}
+
+.lannister {
+  background-position: -101px -54px;
+}
+.lannister:hover {
+  background-position: -101px 0px;
+}
+
+.tully {
+  background-position: -152px -54px;
+}
+.tully:hover {
+  background-position: -152px 0px;
+}
+
+.greyjoy {
+  background-position: -202px -54px;
+}
+.greyjoy:hover {
+  background-position: -202px 0px;
+}
+
+.arryn {
+  background-position: -253px -54px;
+}
+.arryn:hover {
+  background-position: -253px 0px;
+}
+.targaryen {
+  background-position: -303.5px -54px;
+}
+.targaryen:hover {
+  background-position: -303.5px 0px;
+}
+.frey {
+  background-position: -354.5px -54px;
+}
+.frey:hover {
+  background-position: -354.5px 0px;
+}
+.tyrell {
+  background-position: -405.5px -54px;
+}
+.tyrell:hover {
+  background-position: -405.5px 0px;
+}
+/* ----- end image sprite ----- */
+
+/* ----- classes for transitions ----- */
+
+.scaleUp {
+  -moz-transform: scale(1.7, 1.7);
+  -webkit-transform: scale(1.7, 1.7);
+  transform: scale(1.7, 1.7);
+}
+
+.scaleHalfUp {
+  -moz-transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+}
+
+/* add styles here for lightbox and video */
+.lightbox {
+  background-color: rgba(0, 0, 0, 0.774);
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+}
+
+.show-lightbox {
+  display: block;
+}
+
+.lightbox .close {
+  position: relative;
+  float: right;
+  padding-bottom: 20px;
+  font-size: 20px;
+  color: rgb(165, 165, 165);
+  text-decoration: none;
+  transition: 0.2s;
+}
+.lightbox .close:hover {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+.house-info {
+  color: white;
+  font-size: 1.3em;
+  line-height: 1;
+  width: 70%;
+  padding-top: 12px;
+  margin: 0 auto;
+}
+
+.video {
+  width: 100%;
+}
+.c-video {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  overflow: hidden;
+}
+/* controls */
+.c-video:hover .controls {
+  transform: translateY(0);
+}
+.controls {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.7);
+  transform: translateY(100%) translateY(-5px);
+  transition: all 0.2s;
+}
+.buttons {
+  padding: 10px;
+}
+.buttons button {
+  background: none;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+.buttons button:before {
+  content: "►";
+  width: 50px;
+  height: 30px;
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.buttons button.play:before {
+  content: "►";
+}
+.buttons button.pause:before {
+  content: "❚ ❚";
+}
+.orange-bar {
+  height: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+}
+.orange-juice {
+  height: 10px;
+  width: 100px;
+  background-color: orangered;
+}
+
+.time {
+  font-size: 1em;
+  color: orangered;
+  width: 15%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sliderContrainer {
+  width: 10em;
+  margin-top: 15px;
+}
+#volume {
+  appearance: none;
+  width: 100%;
+  background: rgba(243, 243, 243, 0.658);
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  border-radius: 12px;
+}
+#volume:hover {
+  opacity: 1;
+}
+
+#volume::-webkit-slider-thumb {
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  background: white;
+  border-radius: 50%;
+}
+.timer {
+  position: absolute;
+  right: 20px;
+  top: 28px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-around;
+
+  color: white;
+}
+
+.timer span {
+  z-index: 3;
+}
